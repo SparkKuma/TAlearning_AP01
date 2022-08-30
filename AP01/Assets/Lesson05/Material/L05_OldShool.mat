@@ -20,6 +20,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _SpecularPow: 15
+    - _SpecularPow: 20
     m_Colors:
     - _MainCol: {r: 0.2830189, g: 0.155177, b: 0.097454615, a: 1}

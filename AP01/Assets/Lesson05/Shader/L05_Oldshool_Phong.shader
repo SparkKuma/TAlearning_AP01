@@ -1,4 +1,4 @@
-﻿Shader "AP01/L05/OldShool" {
+﻿Shader "AP01/L05/OldShool_Phong" {
     Properties {
         _MainCol     (" 颜色",color) = (1.0, 1.0, 1.0, 1.0)
         _SpecularPow ("高光次幂", range(1,90)) = 30
@@ -44,16 +44,16 @@
             // 输出结构>>>像素
             float4 frag(VertexOutput i) : COLOR {
                 float3 nDir = i.nDirWS;                         
-                float3 lDir = _WorldSpaceLightPos0.xyz;  
+                float3 lDir = normalize(_WorldSpaceLightPos0.xyz);
                 float3 vDir = normalize(_WorldSpaceCameraPos.xyz - i.posWS.xyz);
-                float3 hDir = normalize(vDir + lDir );
+                float3 vRDir = reflect( -vDir, nDir );
 
                 float nDotl = dot(nDir, lDir);            
-                float nDoth= dot(nDir,hDir);
+                float vRDotl= dot(vRDir,lDir);
 
                 float lambert = max(0.0, nDotl);
-                float blinnPhong = pow(max(0.0,nDoth),_SpecularPow);
-                float3 finalRGB = _MainCol* lambert+ blinnPhong;
+                float Phong = pow(max(0.0,vRDotl),_SpecularPow);
+                float3 finalRGB = _MainCol* lambert+ Phong;
                 return float4(finalRGB, 1.0); 
             }
             ENDCG
