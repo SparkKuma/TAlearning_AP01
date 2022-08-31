@@ -72,6 +72,7 @@
     <None Include="Assets\Lesson03\Shader\L03_FlatCol_SF.shader" />
     <None Include="Assets\Lesson02\Answer\Shader\L02_Cell_SF.shader" />
     <None Include="Assets\Lesson01\Shader\L01_Lambert_SF.shader" />
+    <None Include="Assets\Lesson05\L02_M\L02_M_SF.shader" />
     <None Include="Assets\Lesson05\Shader\L05_Phong_SF.shader" />
     <None Include="Assets\Lesson03\Shader\L03_FakeLight_SF.shader" />
     <None Include="Assets\Lesson03\Shader\L03_Lambert.shader" />
@@ -80,6 +81,7 @@
     <None Include="Assets\Lesson01\Shader\L01_HalfLambert_SF.shader" />
     <None Include="Assets\Lesson05\Shader\L05_Blinn_Phong_SF.shader" />
     <None Include="Assets\Lesson04\Answer\Shader\L04_SSSLut_SF.shader" />
+    <None Include="Assets\Lesson05\L02_M\L02_code.shader" />
     <None Include="Assets\Lesson05\Shader\L05_Oldshool.shader" />
     <None Include="Assets\Lesson04\Task\Task02\L04_T02.shader" />
     <None Include="Assets\Lesson02\Task\Task01\L02_T01.shader" />
