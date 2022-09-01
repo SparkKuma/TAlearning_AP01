@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FakeEnvReflect
+  m_Shader: {fileID: 4800000, guid: 0c2de5228b4a6e246b0dd164fe05df2e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 005ae15bbad7fef4ca47d53f4c505273, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_8844:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_9186:
+        m_Texture: {fileID: 2800000, guid: 005ae15bbad7fef4ca47d53f4c505273, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _RampTex: 0.65
+    - _RampType: 0.85
+    - _SpecularPower: 1
+    - _node_6073: 0.641
+    - _node_6502: 16.2
+    m_Colors: []
