@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: L07_OldSchoolPlus
+  m_Shader: {fileID: 4800000, guid: 279920ef27d397f40a222c10ef41ac85, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AO:
+        m_Texture: {fileID: 2800000, guid: 35f8576879031a640b231517d6277b84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EnvInt: 0.1
+    - _SpecPow: 4
+    m_Colors:
+    - _BaseCol: {r: 0.9433962, g: 0.25308, b: 0, a: 1}
+    - _EnvDownCol: {r: 0.5377358, g: 0.2620518, b: 0.0076094554, a: 1}
+    - _EnvSideCol: {r: 0.5499288, g: 0.6981132, b: 0.6798576, a: 1}
+    - _EnvUpCol: {r: 0.4906105, g: 0.990566, b: 0.9279183, a: 1}
+    - _LightCol: {r: 0.8773585, g: 0.6561666, b: 0.43454075, a: 1}

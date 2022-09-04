@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: L07_3ColAmbient_SF
+  m_Shader: {fileID: 4800000, guid: 44fef7057f0828c46bad9feff45d529c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AO:
+        m_Texture: {fileID: 2800000, guid: 35f8576879031a640b231517d6277b84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_6609:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _DownCol: {r: 0.4339623, g: 0.23614384, b: 0.12486649, a: 1}
+    - _EnvDownCol: {r: 0.33962262, g: 0.12999098, b: 0.08810965, a: 1}
+    - _EnvSideCol: {r: 0.5286579, g: 0.6792453, b: 0.6075583, a: 1}
+    - _EnvUpCol: {r: 0.6123621, g: 0.9339623, b: 0.88401085, a: 1}
+    - _SideCol: {r: 0.501958, g: 0.754717, b: 0.59461063, a: 1}
+    - _UpCol: {r: 0.6273585, g: 0.9620052, b: 1, a: 1}
