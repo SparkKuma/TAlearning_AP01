@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnvSpecInt: 1
-    - _FresnelPow: 0
+    - _FresnelPow: 1.96
     - _envLightingInt: 1
-    - _envSpecInt: 1
+    - _envSpecInt: 1.65
     m_Colors: []

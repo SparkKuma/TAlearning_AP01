@@ -80,6 +80,7 @@
     <None Include="Assets\Lesson07\Shader\L07_3ColAmbient.shader" />
     <None Include="Assets\Lesson03\Shader\L03_Lambert.shader" />
     <None Include="Assets\Lesson07\Shader\L07_3ColAmbient_SF.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_OldSchoolPro_SF.shader" />
     <None Include="Assets\Lesson05\Shader\L05_Oldshool_Phong.shader" />
     <None Include="Assets\Lesson02\Task\Task03\L02_T03.shader" />
     <None Include="Assets\Lesson01\Shader\L01_HalfLambert_SF.shader" />
@@ -100,7 +101,8 @@
     <None Include="Assets\Lesson08\Shader\L08_NormalMap_code.shader" />
     <None Include="Assets\Lesson09\Shader\L09_Matcap_SF_mi.shader" />
     <None Include="Assets\Lesson09\Shader\L09_Matcap_code.shader" />
-    <None Include="Assets\Lesson09\Shader\L09_Cubemap_SF.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_Cubemap_SF_mi.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_OldSchoolPro_code.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/TAlearning_AP01/AP01/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
