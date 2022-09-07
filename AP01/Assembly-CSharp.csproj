@@ -91,12 +91,15 @@
     <None Include="Assets\Lesson05\Shader\L05_Oldshool.shader" />
     <None Include="Assets\Lesson04\Task\Task02\L04_T02.shader" />
     <None Include="Assets\Lesson08\Task\Task02\L08_T02.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_Cubemap_code.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_Matcap_SF.shader" />
     <None Include="Assets\Lesson06\Shader\L06_FakeEnvReflect.shader" />
     <None Include="Assets\Lesson02\Task\Task01\L02_T01.shader" />
     <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus_SF.shader" />
     <None Include="Assets\Lesson04\Task\Task01\L04_T01.shader" />
     <None Include="Assets\Lesson08\Shader\L08_NormalMap_code.shader" />
-    <None Include="Assets\Lesson09\Shader\L09_Matcap_SF.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_Matcap_SF_mi.shader" />
+    <None Include="Assets\Lesson09\Shader\L09_Matcap_code.shader" />
     <None Include="Assets\Lesson09\Shader\L09_Cubemap_SF.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/TAlearning_AP01/AP01/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

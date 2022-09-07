@@ -1,19 +1,19 @@
 // Shader created with Shader Forge v1.40 
 // Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.40;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,cpap:True,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:0,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:915,x:32719,y:32712,varname:node_915,prsc:2|emission-7460-OUT;n:type:ShaderForge.SFN_Tex2d,id:8948,x:31364,y:32810,ptovrint:False,ptlb:NormalMap,ptin:_NormalMap,varname:node_8948,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:4ef303839d6d05249b5144a6e1ecbdcd,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Transform,id:2056,x:31555,y:32810,varname:node_2056,prsc:2,tffrom:2,tfto:0|IN-8948-RGB;n:type:ShaderForge.SFN_ComponentMask,id:4446,x:31768,y:32810,varname:node_4446,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-2056-XYZ;n:type:ShaderForge.SFN_Multiply,id:941,x:31980,y:32810,varname:node_941,prsc:2|A-4446-OUT,B-6338-OUT;n:type:ShaderForge.SFN_Vector1,id:6338,x:31768,y:32975,varname:node_6338,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Add,id:1973,x:32154,y:32810,varname:node_1973,prsc:2|A-941-OUT,B-6338-OUT;n:type:ShaderForge.SFN_Tex2d,id:1863,x:32320,y:32810,ptovrint:False,ptlb:MatcapTex,ptin:_MatcapTex,varname:node_1863,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:5fcf8cd9d741c67439d9afe952d45e7b,ntxv:1,isnm:False|UVIN-1973-OUT;n:type:ShaderForge.SFN_Fresnel,id:35,x:31768,y:33073,varname:node_35,prsc:2|NRM-2056-XYZ,EXP-7843-OUT;n:type:ShaderForge.SFN_Slider,id:7843,x:31383,y:33141,ptovrint:False,ptlb:FresnelPow,ptin:_FresnelPow,varname:node_7843,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Multiply,id:7460,x:32517,y:32876,varname:node_7460,prsc:2|A-1863-RGB,B-35-OUT;proporder:8948-1863-7843;pass:END;sub:END;*/
+/*SF_DATA;ver:1.40;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,cpap:True,lico:0,lgpr:1,limd:0,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:False,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:3138,x:32546,y:32809,varname:node_3138,prsc:2|emission-4066-OUT;n:type:ShaderForge.SFN_Transform,id:4380,x:31233,y:32718,cmnt:nDirVS,varname:node_4380,prsc:2,tffrom:0,tfto:3|IN-9414-XYZ;n:type:ShaderForge.SFN_Tex2d,id:4963,x:30891,y:32892,ptovrint:False,ptlb:NormalMap,ptin:_NormalMap,varname:node_4963,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:bbab0a6f7bae9cf42bf057d8ee2755f6,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Vector1,id:6409,x:31400,y:32859,varname:node_6409,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Tex2d,id:3516,x:31754,y:32718,ptovrint:False,ptlb:Matcap,ptin:_Matcap,varname:node_3516,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:630f164e44edb4d848a0fc4d010cfb42,ntxv:1,isnm:False|UVIN-2148-OUT;n:type:ShaderForge.SFN_ComponentMask,id:6081,x:31400,y:32718,varname:node_6081,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-4380-XYZ;n:type:ShaderForge.SFN_Multiply,id:5040,x:32076,y:32800,varname:node_5040,prsc:2|A-3516-RGB,B-6280-OUT;n:type:ShaderForge.SFN_Fresnel,id:6280,x:31896,y:32895,varname:node_6280,prsc:2|NRM-9414-XYZ,EXP-900-OUT;n:type:ShaderForge.SFN_Slider,id:900,x:31573,y:32987,ptovrint:False,ptlb:FresnelPow,ptin:_FresnelPow,varname:node_900,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:10;n:type:ShaderForge.SFN_Transform,id:9414,x:31058,y:32892,cmnt:nDirWS 简单连法,varname:node_9414,prsc:2,tffrom:2,tfto:0|IN-4963-RGB;n:type:ShaderForge.SFN_Multiply,id:4066,x:32232,y:32902,varname:node_4066,prsc:2|A-5040-OUT,B-6441-OUT;n:type:ShaderForge.SFN_Slider,id:3161,x:31896,y:33067,ptovrint:False,ptlb:EnvSpecInt,ptin:_EnvSpecInt,varname:node_3161,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:5;n:type:ShaderForge.SFN_RemapRange,id:2148,x:31573,y:32718,varname:node_2148,prsc:2,frmn:-1,frmx:1,tomn:0,tomx:1|IN-6081-OUT;n:type:ShaderForge.SFN_LightAttenuation,id:32,x:31989,y:33215,varname:node_32,prsc:2;n:type:ShaderForge.SFN_RemapRange,id:6441,x:32168,y:33171,varname:node_6441,prsc:2,frmn:0,frmx:1,tomn:0.5,tomx:1|IN-32-OUT;proporder:4963-3516-900-3161;pass:END;sub:END;*/
 
 Shader "AP01/L09/Matcap_SF" {
     Properties {
         _NormalMap ("NormalMap", 2D) = "bump" {}
-        _MatcapTex ("MatcapTex", 2D) = "gray" {}
-        _FresnelPow ("FresnelPow", Range(0, 1)) = 0
+        _Matcap ("Matcap", 2D) = "gray" {}
+        _FresnelPow ("FresnelPow", Range(0, 10)) = 1
+        _EnvSpecInt ("EnvSpecInt", Range(0, 5)) = 1
     }
     SubShader {
         Tags {
             "RenderType"="Opaque"
         }
-        LOD 100
         Pass {
             Name "FORWARD"
             Tags {
@@ -26,11 +26,12 @@ Shader "AP01/L09/Matcap_SF" {
             #pragma fragment frag
             #pragma multi_compile_instancing
             #include "UnityCG.cginc"
+            #include "AutoLight.cginc"
+            #include "Lighting.cginc"
             #pragma multi_compile_fwdbase_fullshadows
-            #pragma multi_compile_fog
             #pragma target 3.0
             uniform sampler2D _NormalMap; uniform float4 _NormalMap_ST;
-            uniform sampler2D _MatcapTex; uniform float4 _MatcapTex_ST;
+            uniform sampler2D _Matcap; uniform float4 _Matcap_ST;
             UNITY_INSTANCING_BUFFER_START( Props )
                 UNITY_DEFINE_INSTANCED_PROP( float, _FresnelPow)
             UNITY_INSTANCING_BUFFER_END( Props )
@@ -48,7 +49,7 @@ Shader "AP01/L09/Matcap_SF" {
                 float3 normalDir : TEXCOORD2;
                 float3 tangentDir : TEXCOORD3;
                 float3 bitangentDir : TEXCOORD4;
-                UNITY_FOG_COORDS(5)
+                LIGHTING_COORDS(5,6)
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
@@ -60,27 +61,26 @@ Shader "AP01/L09/Matcap_SF" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityObjectToClipPos( v.vertex );
-                UNITY_TRANSFER_FOG(o,o.pos);
+                TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
             float4 frag(VertexOutput i) : COLOR {
                 UNITY_SETUP_INSTANCE_ID( i );
+                i.normalDir = normalize(i.normalDir);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
                 float3 normalDirection = i.normalDir;
 ////// Lighting:
+                float attenuation = LIGHT_ATTENUATION(i);
 ////// Emissive:
                 float3 _NormalMap_var = UnpackNormal(tex2D(_NormalMap,TRANSFORM_TEX(i.uv0, _NormalMap)));
-                float3 node_2056 = mul( _NormalMap_var.rgb, tangentTransform ).xyz;
-                float node_6338 = 0.5;
-                float2 node_1973 = ((node_2056.rgb.rg*node_6338)+node_6338);
-                float4 _MatcapTex_var = tex2D(_MatcapTex,TRANSFORM_TEX(node_1973, _MatcapTex));
+                float3 node_9414 = mul( _NormalMap_var.rgb, tangentTransform ).xyz; // nDirWS 简单连法
+                float2 node_2148 = (mul( UNITY_MATRIX_V, float4(node_9414.rgb,0) ).xyz.rgb.rg*0.5+0.5);
+                float4 _Matcap_var = tex2D(_Matcap,TRANSFORM_TEX(node_2148, _Matcap));
                 float _FresnelPow_var = UNITY_ACCESS_INSTANCED_PROP( Props, _FresnelPow );
-                float3 emissive = (_MatcapTex_var.rgb*pow(1.0-max(0,dot(node_2056.rgb, viewDirection)),_FresnelPow_var));
+                float3 emissive = ((_Matcap_var.rgb*pow(1.0-max(0,dot(node_9414.rgb, viewDirection)),_FresnelPow_var))*(attenuation*0.5+0.5));
                 float3 finalColor = emissive;
-                fixed4 finalRGBA = fixed4(finalColor,1);
-                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
-                return finalRGBA;
+                return fixed4(finalColor,1);
             }
             ENDCG
         }

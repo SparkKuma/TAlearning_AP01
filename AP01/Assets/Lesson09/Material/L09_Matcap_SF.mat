@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Matcap:
+        m_Texture: {fileID: 2800000, guid: 8cb249d8cfc44be4ead5642519775a1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MatcapTex:
         m_Texture: {fileID: 2800000, guid: 8cb249d8cfc44be4ead5642519775a1f, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -28,5 +32,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _EnvSpecInt: 1
     - _FresnelPow: 0
+    - _envLightingInt: 1
+    - _envSpecInt: 1
     m_Colors: []
