@@ -61,6 +61,7 @@
                 float3 nDirWS : TEXCOORD2;      // 世界法线方向
                 float3 tDirWS : TEXCOORD3;      // 世界切线方向
                 float3 bDirWS : TEXCOORD4;      // 世界副切线方向
+                LIGHTING_COORDS (5,6)
             };
             // 输入结构>>>顶点Shader>>>输出结构
             VertexOutput vert (VertexInput v) {
@@ -71,28 +72,40 @@
                     o.nDirWS = UnityObjectToWorldNormal(v.normal);  // 法线方向 OS>WS
                     o.tDirWS = normalize(mul(unity_ObjectToWorld, float4(v.tangent.xyz, 0.0)).xyz); // 切线方向 OS>WS
                     o.bDirWS = normalize(cross(o.nDirWS, o.tDirWS) * v.tangent.w);  // 根据nDir tDir求bDir
+                    TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;                                   // 将输出结构 输出
             }
             // 输出结构>>>像素    
             float4 frag(VertexOutput i) : COLOR {
                 // 准备向量
                 float3 lDirWS = normalize(_WorldSpaceLightPos0.xyz);
-
                 float3 nDirTS = UnpackNormal(tex2D(_NormalMap, i.uv0)).rgb;
                 float3x3 TBN = float3x3(i.tDirWS, i.bDirWS, i.nDirWS);
                 float3 nDirWS = normalize(mul(nDirTS, TBN));   // 计算Fresnel 计算vrDirWS
                 float3 vDirWS = normalize(_WorldSpaceCameraPos.xyz - i.posWS.xyz);  // 计算Fresnel
                 float3 vrDirWS = reflect(-vDirWS, nDirWS);// 采样Cubemap
-                float3 rDir = reflect( -lDirWS, nDirWS );
+                float3 rDirWS = reflect( -lDirWS, nDirWS );
                 float shadow = LIGHT_ATTENUATION(i);
 
                 float vdotn = dot(vDirWS, nDirWS);
+                float ndotl = dot(nDirWS,lDirWS);
+                float vdotr = dot(vDirWS,rDirWS);
+                float phong = pow(max(0,vdotr),_SpecPow);
+                float upMask = max(0.0, nDirWS.g);
+                float downMask = max(0.0,-nDirWS.g);
+                float sideMask = 1.0 - upMask- downMask;
+                float occlusion = tex2D(_AO,i.uv0);
 
                 float3 var_Cubemap = texCUBElod(_Cubemap, float4(vrDirWS, _CubemapMip)).rgb;
+                float3 EnvCol = upMask*_EnvUpCol + sideMask*_EnvSideCol + downMask*_EnvDownCol;
+                float3 lambertCol = max(0,ndotl)*_BaseCol;
+                float3 PhongLambertShadow = (lambertCol + phong) * _LightCol * shadow;
+                float3 EnvLighting = EnvCol* _EnvInt * occlusion ;
                 float fresnel = pow(max(0.0, 1.0 - vdotn), _FresnelPow);
                 float3 envSpecLighting = var_Cubemap * fresnel * _EnvSpecInt;
+                float3 finalCol = PhongLambertShadow + EnvLighting + envSpecLighting;
 
-                return float4(envSpecLighting, 1.0);
+                return float4(finalCol, 1.0);
             }
             ENDCG
         }
