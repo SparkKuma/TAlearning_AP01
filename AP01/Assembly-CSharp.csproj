@@ -87,6 +87,7 @@
      <None Include="Assets\Lesson09\Shader\L09_Matcap_SF.shader" />
      <None Include="Assets\Lesson06\Shader\L06_FakeEnvReflect.shader" />
      <None Include="Assets\Lesson02\Task\Task01\L02_T01.shader" />
+     <None Include="Assets\Lesson10\Shader\L10_OldSchoolProV2_code.shader" />
      <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus_SF.shader" />
      <None Include="Assets\Lesson04\Task\Task01\L04_T01.shader" />
      <None Include="Assets\Lesson08\Shader\L08_NormalMap_code.shader" />
