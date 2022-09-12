@@ -111,14 +111,14 @@
 
                 //光照模型——直接光照
                 float3 baseCol = var_MainTex * _BaseCol;
-                float3 lambertCol = max(0,ndotl)* baseCol;
+                float3 lambert = max(0,ndotl);
 
                 float phong = pow(max(0,vdotr),_SpecPow);
                 float specCol = var_SpecTex.rgb;
                 float specPow = lerp(1, _SpecPow, var_SpecTex.a);
 
                 float shadow = LIGHT_ATTENUATION(i);
-                float3 dirLighting = (lambertCol + specCol * phong) * shadow;
+                float3 dirLighting = (lambert * baseCol + specCol * phong) * _LightColor0 * shadow;
 
                 //光照模型——环境光照影响
                 float upMask = max(0.0, nDirWS.g);
@@ -132,7 +132,7 @@
                 float fresnel = pow(max(0.0, 1.0 - vdotn), _FresnelPow);
                 float3 envSpecLighting = var_Cubemap * fresnel * _EnvSpecInt;
 
-                float3 EnvLighting = EnvCol* _EnvDiffInt * occlusion ;
+                float3 EnvLighting = (baseCol* EnvCol*_EnvDiffInt + envSpecLighting*_EnvSpecInt *var_SpecTex.a)* occlusion ;
                 
                 //光照模型——自发光
                 float emitInt = _EmissInt * (sin(frac(_Time.z))* 0.5 + 0.5);

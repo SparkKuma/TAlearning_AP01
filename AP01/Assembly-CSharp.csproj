@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Common\Script\ShowNormal.cs" />
      <None Include="Assets\Lesson01\Shader\L01_RampTex_SF.shader" />
+     <None Include="Assets\Lesson11\cginc\MyCginc.cginc" />
      <None Include="Assets\Lesson04\Answer\Shader\L04_HalfLambert.shader" />
      <None Include="Assets\Lesson03\Shader\L03_FlatCol.shader" />
      <None Include="Assets\Lesson02\Task\Task02\L02_T02.shader" />
@@ -77,6 +78,7 @@
      <None Include="Assets\Lesson01\Shader\L01_HalfLambert_SF.shader" />
      <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus.shader" />
      <None Include="Assets\Lesson08\Shader\L08_NormalMap_SF.shader" />
+     <None Include="Assets\Lesson11\Shader\L11_OldSchoolPro.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Blinn_Phong_SF.shader" />
      <None Include="Assets\Lesson04\Answer\Shader\L04_SSSLut_SF.shader" />
      <None Include="Assets\Lesson05\L02_M\L02_code.shader" />
