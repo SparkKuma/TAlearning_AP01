@@ -107,18 +107,18 @@
                 float4 var_MainTex = tex2D(_MainTex, i.uv0);
                 float4 var_SpecTex = tex2D(_SpecTex, i.uv0);
                 float3 var_EmitTex = tex2D(_EmitTex, i.uv0).rgb;
-                float3 var_Cubemap = texCUBElod(_Cubemap, float4(vrDirWS, _CubemapMip)).rgb;
+                float3 var_Cubemap = texCUBElod(_Cubemap, float4(vrDirWS, lerp(_CubemapMip, 0.0, var_SpecTex.a))).rgb;
 
                 //光照模型——直接光照
                 float3 baseCol = var_MainTex * _BaseCol;
-                float3 lambert = max(0,ndotl);
+                float3 lambert = max(0.0,ndotl);
 
-                float phong = pow(max(0,vdotr),_SpecPow);
+                float phong = pow(max(0.0,vdotr),_SpecPow);
                 float specCol = var_SpecTex.rgb;
-                float specPow = lerp(1, _SpecPow, var_SpecTex.a);
+                float specPow = lerp(1.0, _SpecPow, var_SpecTex.a);
 
                 float shadow = LIGHT_ATTENUATION(i);
-                float3 dirLighting = (lambert * baseCol + specCol * phong) * _LightColor0 * shadow;
+                float3 dirLighting = (baseCol * lambert + specCol * phong) * _LightColor0 * shadow;
 
                 //光照模型——环境光照影响
                 float upMask = max(0.0, nDirWS.g);
