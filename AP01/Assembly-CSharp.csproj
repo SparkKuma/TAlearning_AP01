@@ -85,6 +85,7 @@
     <None Include="Assets\Lesson05\Shader\L05_Oldshool_Phong.shader" />
     <None Include="Assets\Lesson02\Task\Task03\L02_T03.shader" />
     <None Include="Assets\Lesson01\Shader\L01_HalfLambert_SF.shader" />
+    <None Include="Assets\Lesson13\Shader\L13_AC.shader" />
     <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus.shader" />
     <None Include="Assets\Lesson08\Shader\L08_NormalMap_SF.shader" />
     <None Include="Assets\Lesson11\Shader\L11_OldSchoolPro.shader" />
