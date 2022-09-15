@@ -5,7 +5,7 @@
     }
     SubShader {
         Tags {
-            "RenderType" = "TransparemtCutout"
+            "RenderType" = "TransparentCutout"
             "ForceNoShadowCasting" = "True"
             "IgnoreProjector" = "Ture"
         }
@@ -28,25 +28,25 @@
             // 输入结构
             struct VertexInput {
                 float4 vertex : POSITION;   // 顶点信息
-                float2 uv : TEXCOORD0;
+                float2 uv0 : TEXCOORD0;
             };
             // 输出结构
             struct VertexOutput {
                 float4 pos : SV_POSITION;   // 由模型顶点信息换算而来的顶点屏幕位置
-                float2 uv : TEXCOORD0;
+                float2 uv0 : TEXCOORD0;
             };
             // 输入结构>>>顶点Shader>>>输出结构
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;           
                     o.pos = UnityObjectToClipPos( v.vertex );   
-                    o.uv = TRANSFORM_TEX(v.uv,_MainTex);
+                    o.uv0 = TRANSFORM_TEX(v.uv0,_MainTex);
                 return o;                               
             }
             // 输出结构>>>像素
             float4 frag(VertexOutput i) : COLOR {
-                half4 var_MainTex = tex2D(_MainTex,i.uv);
+                half4 var_MainTex = tex2D(_MainTex,i.uv0);
                 clip(var_MainTex.a - _Cutoff );
-                return var_MainTex;
+                return float4(var_MainTex.rgb,1.0);
             }
             ENDCG
         }
