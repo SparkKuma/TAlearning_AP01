@@ -1,6 +1,6 @@
 ﻿Shader "AP01/L13/AC" {
     Properties {
-        _MainTex("RGB：颜色 A：透贴",2d) = "gray" {} 
+        _MainTex("RGB:颜色 A:透贴",2d) = "gray" {} 
         _Cutoff("透切阈值",range(0.0,1.0)) = 0.5
     }
     SubShader {

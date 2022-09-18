@@ -1,16 +1,28 @@
 ﻿Shader "AP01/L12/Dota2" {
     Properties {
         [Header(Texture)]
-        [NoScaleOffset]_D  ("RGB:基础颜色 A:透明通道",2D)                                   = "white"{}
-        [NoScaleOffset]_M  ("RGB:金属度",2D)                                                   = "black"{}
-        [NoScaleOffset][Normal]_N  ("RGB:法线贴图",2D)                                     = "bump"{}
-        [NoScaleOffset]_S  ("R:高光遮罩 G:边缘遮罩 B:色调遮罩 A:高光次幂",2D)                = "grey"{}
-        [NoScaleOffset]_CubeMap ("RGB:天空球",cube)                                        ="_Skybox"{}
+            [NoScaleOffset]_D  ("RGB:基础颜色 A:透明通道",2D)                                   = "white"{}
+            [NoScaleOffset]_M  ("RGB:金属度 A:自发光",2D)                                      = "black"{}
+            [NoScaleOffset][Normal]_N  ("RGB:法线贴图",2D)                                     = "bump"{}
+            [NoScaleOffset]_S  ("R:高光遮罩 G:边缘遮罩 B:色调遮罩 A:高光次幂",2D)                = "grey"{}
+            [NoScaleOffset]_Cubemap    ("RGB:环境贴图", cube)                                  = "_Skybox" {}
+            _FresnelWarp ("菲涅尔Ramp",2D)                                   = "white" {}
+            _DiffuseWarp ("颜色Ramp",2D) = "white" {}
+            _Cutoff("透切阈值",range(0.0,1.0)) = 0.5
+        [Herder(Specular)]
+            _SpecPow    ("高光次幂", Range(1, 90))      = 20
+            _EnvSpecInt ("环境反射强度", Range(0, 5))   = 0.2
+            _FresnelPow ("菲涅尔次幂", Range(0, 10))    = 1
+            _CubemapMip ("天空球Mip", Range(0, 7))      = 0
+        [Header(Emisson)]
+            _EmissInt   ("自发光强度",Range(1.0,10.0))    = 1.0
 
     }
     SubShader {
         Tags {
-            "RenderType"="Opaque"
+            "RenderType" = "TransparentCutout"
+            "ForceNoShadowCasting" = "True"
+            "IgnoreProjector" = "Ture"
         }
         Pass {
             Name "FORWARD"
@@ -31,13 +43,17 @@
             uniform sampler2D           _N;
             uniform sampler2D           _S;
             uniform samplerCUBE         _CubeMap;
-
-            //Diffuse
-
+            uniform sampler2D           _FresnelWarp; uniform float4 _FresnelWarp_ST;
+            uniform sampler2D           _DiffuseWarp; uniform float4 _DiffuseWarp_ST;
+            //Transparent
+            uniform half                _Cutoff;
             //Specular
-
+            uniform half                _SpecPow;
+            uniform half                _EnvSpecInt;
+            uniform half                _FresnelPow;
+            uniform half                _CubemapMip;
             //Emisson
-
+            uniform half                _EmissInt;
 
 
             // 输入结构
@@ -71,29 +87,62 @@
             }
             // 输出结构>>>像素    
             float4 frag(VertexOutput i) : COLOR {
-                // 准备向量
-
-
-                //点乘结果
-
-        
                 //采样纹理
-                float3 var_D = tex2D(_D,i.uv0);
+                half4 var_D = tex2D(_D,i.uv0);
+                half4 var_M = tex2D(_M,i.uv0);
+                half4 var_N = tex2D(_N,i.uv0);
+                half4 var_S = tex2D(_S,i.uv0);
+                
+                //提取通道
+                half MetalMask = var_M.r;
+                half emissMask = var_M.a;
+                half SpecExp = var_S.a;
+                half SpecularMask = var_S.r;
+                half Rimlight = var_S.g;
+                half TintMask = var_S.b;
 
-                //光照模型——直接光照
+                // 准备向量
+                half3 nDirTS = UnpackNormal(var_N).rgb;
+                float3x3 TBN = float3x3(i.tDirWS,i.bDirWS,i.nDirWS);
+                float3 nDirWS = normalize(mul(nDirTS,TBN));
+                float3 vDirWS = normalize(_WorldSpaceCameraPos.xyz - i.posWS.xyz);
+                float3 vrDirWS = reflect(-vDirWS,nDirWS);
+                float3 lDirWS = normalize(_WorldSpaceLightPos0.xyz);
+                float3 rDirWS = reflect(-lDirWS,nDirWS);
+                //采样天空球
+                half3 var_Cubemap = texCUBElod(_CubeMap,float4(vrDirWS,lerp(_CubemapMip,0.0,SpecExp))).rgb;
+                //点乘结果
+                half vdotn = dot(vDirWS,nDirWS);
+                half ndotl = dot(nDirWS,lDirWS);
+                half vdotr = dot(vDirWS,rDirWS);
+                half HalfLambert = max(0.0,ndotl)*0.5+0.5;
+                //采样Ramp
+                half2 RampUV = half2(HalfLambert,0.5);
+                half4 var_FresnelWarp = tex2D(_FresnelWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
+                half4 var_DiffuseWarp = tex2D(_DiffuseWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
 
+                //光照模型——直接光照 baseCol* (1.0-TintMask)
+                half3 baseCol = var_D.rgb;
+                half specCol =lerp( baseCol* (1.0-TintMask),1,SpecularMask);
+                half specPow = lerp(1, _SpecPow, SpecExp);
+                half phong = pow(max(0.0, vdotr), specPow);
+                half3 dirLighting = (baseCol * HalfLambert +  specCol * phong  ) * _LightColor0 ;
 
 
                 //光照模型——环境光照影响
+                half fresnel = pow(max(0.0,1.0-vdotn),_FresnelPow);
+                half3 EnvLighting = (baseCol * MetalMask  + var_Cubemap * fresnel * _EnvSpecInt *SpecExp*MetalMask)*SpecExp;
 
                 //光照模型——自发光
+                half3 emission = baseCol * emissMask * _EmissInt;
 
 
+                //透明通道
+                clip(var_D.a - _Cutoff);
                 //最终颜色
+                half3 finalRGB =  dirLighting + EnvLighting + emission;
 
-                
-
-                return float4(var_D, 1.0);
+                return half4(finalRGB, 1.0);
             }
             ENDCG
         }
