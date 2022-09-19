@@ -12,8 +12,8 @@
         [Herder(Specular)]
             _SpecPow    ("高光次幂", Range(1, 90))      = 20
             _EnvSpecInt ("环境反射强度", Range(0, 5))   = 0.2
-            _FresnelPow ("菲涅尔次幂", Range(0, 10))    = 1
-            _CubemapMip ("天空球Mip", Range(0, 7))      = 0
+            _FresnelPow ("菲涅尔次幂", Range(0, 10))    = 2
+            _CubemapMip ("天空球Mip", Range(0, 7))      = 3
         [Header(Emisson)]
             _EmissInt   ("自发光强度",Range(1.0,10.0))    = 1.0
 
@@ -109,29 +109,35 @@
                 float3 vrDirWS = reflect(-vDirWS,nDirWS);
                 float3 lDirWS = normalize(_WorldSpaceLightPos0.xyz);
                 float3 rDirWS = reflect(-lDirWS,nDirWS);
+                float shadow = LIGHT_ATTENUATION(i);
                 //采样天空球
-                half3 var_Cubemap = texCUBElod(_CubeMap,float4(vrDirWS,lerp(_CubemapMip,0.0,SpecExp))).rgb;
+                half3 var_Cubemap = texCUBElod(_CubeMap,float4(vrDirWS,_CubemapMip)).rgb;
                 //点乘结果
                 half vdotn = dot(vDirWS,nDirWS);
                 half ndotl = dot(nDirWS,lDirWS);
                 half vdotr = dot(vDirWS,rDirWS);
-                half HalfLambert = max(0.0,ndotl)*0.5+0.5;
-                //采样Ramp
-                half2 RampUV = half2(HalfLambert,0.5);
-                half4 var_FresnelWarp = tex2D(_FresnelWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
-                half4 var_DiffuseWarp = tex2D(_DiffuseWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
-
-                //光照模型——直接光照 baseCol* (1.0-TintMask)
-                half3 baseCol = var_D.rgb;
-                half specCol =lerp( baseCol* (1.0-TintMask),1,SpecularMask);
                 half specPow = lerp(1, _SpecPow, SpecExp);
                 half phong = pow(max(0.0, vdotr), specPow);
-                half3 dirLighting = (baseCol * HalfLambert +  specCol * phong  ) * _LightColor0 ;
+                half HalfLambert = max(0.0,ndotl)*0.5+0.5;
+                //采样Ramp
+                half2 RampUV = half2(phong,0.5);
+                half4 var_FresnelWarp = tex2D(_FresnelWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
+                half4 var_DiffuseWarp = tex2D(_DiffuseWarp,TRANSFORM_TEX(RampUV, _FresnelWarp));
+                //我也不知道warp那几张图怎么用先踩出来再说
+                half fresnelWarpColor = var_FresnelWarp.r;
+                half fresnelWarpRim = var_FresnelWarp.g;
+                half fresnelWarpSpec = var_FresnelWarp.b;
+                //光照模型——直接光照 baseCol* (1.0-TintMask)
+                half3 baseCol = var_D.rgb;
+                //预留half specCol =lerp( baseCol* (1.0-TintMask),1,SpecularMask);
+                half specCol = SpecularMask + lerp( baseCol* (1.0-TintMask),1,SpecularMask);
+                half3 dirLighting = (baseCol * HalfLambert+ fresnelWarpColor*var_DiffuseWarp  +  specCol * phong  ) * _LightColor0 * shadow ;//直射光的影响比较好理解 
 
 
                 //光照模型——环境光照影响
                 half fresnel = pow(max(0.0,1.0-vdotn),_FresnelPow);
-                half3 EnvLighting = (baseCol * MetalMask  + var_Cubemap * fresnel * _EnvSpecInt *SpecExp*MetalMask)*SpecExp;
+                half3 Rim = Rimlight * fresnel * fresnelWarpRim;// 就是楞乘菲涅尔 达到背光的效果  就是肉眼看的 感觉不够精妙
+                half3 EnvLighting = (baseCol * MetalMask  + var_Cubemap * fresnel * _EnvSpecInt *SpecExp*MetalMask)*SpecExp; //颜色乘金属度Mask是为了得到会产生环境反射的位置 
 
                 //光照模型——自发光
                 half3 emission = baseCol * emissMask * _EmissInt;
@@ -140,9 +146,9 @@
                 //透明通道
                 clip(var_D.a - _Cutoff);
                 //最终颜色
-                half3 finalRGB =  dirLighting + EnvLighting + emission;
+                half3 finalRGB =  dirLighting + EnvLighting + emission + Rim+ pow(fresnel,2.0)*0.5;// +Rim 是为了背光  + 手动二次方再成个0.5 的菲涅尔  这个是因为背光不够 理论我应该加上面 但是我急了
 
-                return half4(finalRGB, 1.0);
+                return half4(finalRGB,1.0);
             }
             ENDCG
         }
