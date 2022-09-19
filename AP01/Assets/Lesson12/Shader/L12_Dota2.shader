@@ -29,6 +29,7 @@
             Tags {
                 "LightMode"="ForwardBase"
             }
+            cull Off
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -146,7 +147,7 @@
                 //透明通道
                 clip(var_D.a - _Cutoff);
                 //最终颜色
-                half3 finalRGB =  dirLighting + EnvLighting + emission + Rim+ pow(fresnel,2.0)*0.5;// +Rim 是为了背光  + 手动二次方再成个0.5 的菲涅尔  这个是因为背光不够 理论我应该加上面 但是我急了
+                half3 finalRGB =  dirLighting + EnvLighting + emission + Rim+ pow(fresnel,2.0)*nDirWS.g;// +Rim 是为了背光  + 手动二次方再成个0.5 的菲涅尔  这个是因为背光不够 理论我应该加上面 但是我急了
 
                 return half4(finalRGB,1.0);
             }
