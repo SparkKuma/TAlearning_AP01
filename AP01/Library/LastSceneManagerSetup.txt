@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Lesson12/Sence/L12.unity
+- path: Assets/Lesson12_mi/Sence/L12_mi.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
