@@ -25,6 +25,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BlendDOp: 0
-    - _BlendDst: 1
-    - _BlendSrc: 1
+    - _BlendDst: 10
+    - _BlendSrc: 5
     m_Colors: []

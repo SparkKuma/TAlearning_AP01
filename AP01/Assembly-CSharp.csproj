@@ -75,6 +75,7 @@
      <None Include="Assets\Lesson03\Shader\L03_Lambert.shader" />
      <None Include="Assets\Lesson07\Shader\L07_3ColAmbient_SF.shader" />
      <None Include="Assets\Lesson09\Shader\L09_OldSchoolPro_SF.shader" />
+     <None Include="Assets\Lesson15\Shader\L15_GhostWarp.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Oldshool_Phong.shader" />
      <None Include="Assets\Lesson02\Task\Task03\L02_T03.shader" />
      <None Include="Assets\Lesson01\Shader\L01_HalfLambert_SF.shader" />
@@ -83,11 +84,15 @@
      <None Include="Assets\Lesson08\Shader\L08_NormalMap_SF.shader" />
      <None Include="Assets\Lesson11\Shader\L11_OldSchoolPro.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Blinn_Phong_SF.shader" />
+     <None Include="Assets\Lesson15\Shader\L15_GhostFlow.shader" />
      <None Include="Assets\Lesson04\Answer\Shader\L04_SSSLut_SF.shader" />
+     <None Include="Assets\Lesson15\Shader\L15_GhostFlow2.shader" />
      <None Include="Assets\Lesson05\L02_M\L02_code.shader" />
      <None Include="Assets\Lesson13\Shader\L13_AB.shader" />
+     <None Include="Assets\Lesson15_mi\Shader\L15_GhostWarp_mi.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Oldshool.shader" />
      <None Include="Assets\Lesson12\Shader\L12_Dota2.shader" />
+     <None Include="Assets\Lesson15_mi\Shader\L15_GhostFlow_mi.shader" />
      <None Include="Assets\Lesson04\Task\Task02\L04_T02.shader" />
      <None Include="Assets\Lesson08\Task\Task02\L08_T02.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Cubemap_code.shader" />
@@ -98,6 +103,7 @@
      <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus_SF.shader" />
      <None Include="Assets\Lesson04\Task\Task01\L04_T01.shader" />
      <None Include="Assets\Lesson08\Shader\L08_NormalMap_code.shader" />
+     <None Include="Assets\Lesson15\Shader\L15_GhostWarp2.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Matcap_SF_mi.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Matcap_code.shader" />
      <None Include="Assets\Lesson13\Shader\L13_BlendMode.shader" />
