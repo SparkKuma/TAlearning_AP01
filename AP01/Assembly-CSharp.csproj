@@ -63,6 +63,7 @@
      <None Include="Assets\Lesson03\Shader\L03_FlatCol.shader" />
      <None Include="Assets\Lesson02\Task\Task02\L02_T02.shader" />
      <None Include="Assets\Lesson03\Shader\L03_FlatCol_SF.shader" />
+     <None Include="Assets\Lesson14&amp;16\Shader\L16_Fire.shader" />
      <None Include="Assets\Lesson13\Shader\L13_AD.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Fresnel_SF.shader" />
      <None Include="Assets\Lesson02\Answer\Shader\L02_Cell_SF.shader" />
