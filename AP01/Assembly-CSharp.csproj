@@ -94,6 +94,7 @@
      <None Include="Assets\Lesson05\Shader\L05_Oldshool.shader" />
      <None Include="Assets\Lesson12\Shader\L12_Dota2.shader" />
      <None Include="Assets\Lesson15_mi\Shader\L15_GhostFlow_mi.shader" />
+     <None Include="Assets\Lesson14&amp;16\Shader\L16_Water.shader" />
      <None Include="Assets\Lesson04\Task\Task02\L04_T02.shader" />
      <None Include="Assets\Lesson08\Task\Task02\L08_T02.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Cubemap_code.shader" />
