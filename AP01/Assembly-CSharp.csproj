@@ -75,6 +75,7 @@
      <None Include="Assets\Lesson07\Shader\L07_3ColAmbient.shader" />
      <None Include="Assets\Lesson03\Shader\L03_Lambert.shader" />
      <None Include="Assets\Lesson07\Shader\L07_3ColAmbient_SF.shader" />
+     <None Include="Assets\Lesson17\Shader\L17_ScreenUV.shader" />
      <None Include="Assets\Lesson09\Shader\L09_OldSchoolPro_SF.shader" />
      <None Include="Assets\Lesson15\Shader\L15_GhostWarp.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Oldshool_Phong.shader" />
@@ -89,6 +90,7 @@
      <None Include="Assets\Lesson04\Answer\Shader\L04_SSSLut_SF.shader" />
      <None Include="Assets\Lesson15\Shader\L15_GhostFlow2.shader" />
      <None Include="Assets\Lesson05\L02_M\L02_code.shader" />
+     <None Include="Assets\Lesson17\Shader\L17_ScreenWarp.shader" />
      <None Include="Assets\Lesson13\Shader\L13_AB.shader" />
      <None Include="Assets\Lesson15_mi\Shader\L15_GhostWarp_mi.shader" />
      <None Include="Assets\Lesson05\Shader\L05_Oldshool.shader" />

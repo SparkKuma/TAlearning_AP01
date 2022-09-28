@@ -50,7 +50,7 @@
                     o.pos = UnityObjectToClipPos( v.vertex);        // 顶点位置 OS>CS
                     o.uv0 = v.uv - frac(-_Time.x * _Speed);
                     o.uv1 = v.uv * _Warp1Params.x - frac(-_Time.x * _Warp1Params.yz);
-                    o.uv2 = v.uv * _Warp2Params.x - frac(-_Time.x * _WarpParams.yz);
+                    o.uv2 = v.uv * _Warp2Params.x - frac(-_Time.x * _Warp2Params.yz);
                 return o;
             }
             // 输出结构>>>像素
