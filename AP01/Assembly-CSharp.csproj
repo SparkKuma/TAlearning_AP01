@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Common\Script\ShowNormal.cs" />
+     <Compile Include="Assets\Lesson20\Script\Clock.cs" />
+     <Compile Include="Assets\Lesson20\Script\Clock_mi.cs" />
+     <Compile Include="Assets\Lesson20\Script\HelloWorldAgain.cs" />
      <None Include="Assets\Lesson01\Shader\L01_RampTex_SF.shader" />
      <None Include="Assets\Lesson18\Shader\L18_PolarCoord.shader" />
      <None Include="Assets\Lesson11\cginc\MyCginc.cginc" />
@@ -109,9 +112,11 @@
      <None Include="Assets\Lesson19\Shader\L19_Rotation.shader" />
      <None Include="Assets\Lesson09\Shader\L09_Matcap_SF.shader" />
      <None Include="Assets\Lesson06\Shader\L06_FakeEnvReflect.shader" />
+     <None Include="Assets\Lesson20\Shader\L20_ClockAnim.shader" />
      <None Include="Assets\Lesson02\Task\Task01\L02_T01.shader" />
      <None Include="Assets\Lesson10\Shader\L10_OldSchoolProV2_code.shader" />
      <None Include="Assets\Lesson07\Shader\L07_OldSchoolPlus_SF.shader" />
+     <None Include="Assets\Lesson20\Shader\L20_OldSchoolAnim.shader" />
      <None Include="Assets\Lesson04\Task\Task01\L04_T01.shader" />
      <None Include="Assets\Lesson08\Shader\L08_NormalMap_code.shader" />
      <None Include="Assets\Lesson15\Shader\L15_GhostWarp2.shader" />

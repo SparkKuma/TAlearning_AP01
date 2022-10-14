@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Opacity: 1
-    - _RotateRange: 40.5
-    - _RotateSpeed: 0.53
+    - _RotateRange: 45
+    - _RotateSpeed: 0.38
     m_Colors:
     - _Rotation: {r: 0, g: 473.5, b: 0, a: 0}
