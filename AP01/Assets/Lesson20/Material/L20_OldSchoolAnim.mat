@@ -58,11 +58,11 @@ Material:
     - _EnvInt: 0.205
     - _EnvSpecInt: 1.41
     - _FresnelPow: 0
-    - _HourHandAngle: 64.683334
+    - _HourHandAngle: 238.5125
     - _MatcapInt: 0.346
-    - _MinuteHandAngle: 56.2
+    - _MinuteHandAngle: 342.15
     - _RotateOffset: 3.205
-    - _SecondHandAngle: 264
+    - _SecondHandAngle: 18
     - _SpecPow: 26.3
     m_Colors:
     - _BaseCol: {r: 0.3962264, g: 0.17558269, b: 0, a: 1}
