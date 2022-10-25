@@ -164,7 +164,7 @@
                 // 光照模型(自发光部分)
                 float3 emission = var_EmitTex * _EmitInt * (sin(_Time.z) * 0.5 + 0.5);
                 // 特效部分
-                // 采样EffMap02
+                // 采样EffMap01
                 float3 _EffMap01_var = tex2D(_EffMap01, i.uv1).xyz;
                 float meshMask = _EffMap01_var.x;
                 float faceRandomMask = _EffMap01_var.y;

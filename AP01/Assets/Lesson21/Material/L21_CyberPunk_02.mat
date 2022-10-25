@@ -71,7 +71,7 @@ Material:
     m_Colors:
     - _BaseCol: {r: 0.3962264, g: 0.17558269, b: 0, a: 1}
     - _EffCol: {r: 0, g: 169.17429, b: 220.0992, a: 0}
-    - _EffParams: {r: 0.025, g: 3, b: 0.2, a: 2.5}
+    - _EffParams: {r: 0.02, g: 3, b: 0.3, a: 2.5}
     - _EnvDownCol: {r: 1, g: 0.83509046, b: 0.4669811, a: 1}
     - _EnvSideCol: {r: 1, g: 0.9288367, b: 0.740566, a: 1}
     - _EnvUpCol: {r: 0.6084906, g: 0.9296307, b: 1, a: 1}
